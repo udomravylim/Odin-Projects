@@ -1,25 +1,25 @@
-const container = document.getElementById("container");
-const squareSize = document.querySelector("#squareSize");
+const container = document.querySelector("#container");
+const inputSize = document.querySelector("#inputSize");
 
-squareSize.addEventListener("click", () => {
-    const sizeInput = Number(prompt("Enter the size for both size: "));
+inputSize.addEventListener("click", ()=> {
+    const size = Number(prompt("Enter the length for both side"));
 
-    container.innerHTML ="";
+    container.innerHTML = "";
+    for (let i = 0; i < size * size; i++){
+        const miniSqaure = document.createElement("div");
+        miniSqaure.classList.add("miniSquare");
 
-    for(let i = 0; i < sizeInput * sizeInput; i++){
-        const smallSquare = document.createElement("div");
-        smallSquare.classList.add("smallSquare");
+        miniSqaure.style.width = `${500/size}px`;
+        miniSqaure.style.height = `${500/size}px`;
+        miniSqaure.style.boxSizing= "border-box";
 
-        smallSquare.style.width = `${500/sizeInput}px`;
-        smallSquare.style.height = `${500/sizeInput}px`;
-        smallSquare.style.border = "1px solid gray";
-        smallSquare.style.boxSizing = "border-box";
-
-        smallSquare.addEventListener("mouseleave", ()=>{
-            smallSquare.style.backgroundColor="blue";
+        miniSqaure.addEventListener("mouseleave", ()=>{
+            miniSqaure.style.backgroundColor="blue";
         })
 
-        container.appendChild(smallSquare);
-    };
 
+
+
+        container.appendChild(miniSqaure);
+    }
 })
